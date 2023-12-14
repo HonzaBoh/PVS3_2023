@@ -24,6 +24,7 @@ public class Notations {
         String text;
         int vencaSpravneUhodl;
         double whatever = Math.PI;
+        //toto jsou konstanty
         String graphics = BorderLayout.NORTH;
         Notations n = new Notations();
         n.getNum();
