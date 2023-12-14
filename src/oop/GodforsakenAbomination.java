@@ -13,6 +13,5 @@ public class GodforsakenAbomination {
                 }
             }
         }
-        System.out.println("Line added");
     }
 }
