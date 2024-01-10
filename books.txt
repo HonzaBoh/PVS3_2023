@@ -1,0 +1,50 @@
+To Kill a Mockingbird;Harper Lee;1960
+1984;George Orwell;1949
+The Great Gatsby;F. Scott Fitzgerald;1925
+The Catcher in the Rye;J.D. Salinger;1951
+Brave New World;Aldous Huxley;1932
+One Hundred Years of Solitude;Gabriel Garcia Marquez;1967
+The Lord of the Rings;J.R.R. Tolkien;1954
+Pride and Prejudice;Jane Austen;1813
+The Hunger Games;Suzanne Collins;2008
+Animal Farm;George Orwell;1945
+The Chronicles of Narnia;C.S. Lewis;1950
+To the Lighthouse;Virginia Woolf;1927
+Moby-Dick;Herman Melville;1851
+Fahrenheit 451;Ray Bradbury;1953
+The Odyssey;Homer;-725
+A Tale of Two Cities;Charles Dickens;1859
+The Shining;Stephen King;1977
+The Road;Cormac McCarthy;2006
+The Hitchhiker's Guide to the Galaxy;Douglas Adams;1979
+Slaughterhouse-Five;Kurt Vonnegut;1969
+Crime and Punishment;Fyodor Dostoevsky;1866
+Wuthering Heights;Emily Brontë;1847
+The Alchemist;Paulo Coelho;1988
+Gone with the Wind;Margaret Mitchell;1936
+The Color Purple;Alice Walker;1982
+The Kite Runner;Khaled Hosseini;2003
+Anna Karenina;Leo Tolstoy;1877
+The Grapes of Wrath;John Steinbeck;1939
+The Picture of Dorian Gray;Oscar Wilde;1890
+The Brothers Karamazov;Fyodor Dostoevsky;1880
+Harry Potter and the Philosopher's Stone;J.K. Rowling;1997
+The Girl with the Dragon Tattoo;Stieg Larsson;2005
+The Martian;Andy Weir;2011
+The Hobbit;J.R.R. Tolkien;1937
+The Princess Bride;William Goldman;1973
+The Old Man and the Sea;Ernest Hemingway;1952
+The Count of Monte Cristo;Alexandre Dumas;1844
+War and Peace;Leo Tolstoy;1869
+The Secret Garden;Frances Hodgson Burnett;1911
+The Divine Comedy;Dante Alighieri;1320
+Frankenstein;Mary Shelley;1818
+Charlotte's Web;E.B. White;1952
+The Jungle Book;Rudyard Kipling;1894
+The Wind in the Willows;Kenneth Grahame;1908
+Jurassic Park;Michael Crichton;1990
+Les Misérables;Victor Hugo;1862
+The Catcher in the Rye;J.D. Salinger;1951
+Dracula;Bram Stoker;1897
+The Shining;Stephen King;1977
+Game of Thrones;G.R.R. Martin;1991
