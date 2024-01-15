@@ -109,7 +109,7 @@ class Book{
      */
     @Override
     public String toString() {
-        return title + "\n\t\t\tby" + author + "\t\t\tin" + yearOfRelease;
+        return title + "\t|" + author + "\t|" + yearOfRelease + "\n";
     }
 }
 
