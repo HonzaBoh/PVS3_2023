@@ -36,6 +36,11 @@ public class Gun implements Comparable<Gun> {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
     public int compareTo(Gun o) {
         return BY_AMMO.compare(this, o);
     }
