@@ -3,6 +3,8 @@ package oop.collections;
 
 import oop.Basics.Song;
 
+import java.util.EmptyStackException;
+
 public class StackArray <T> {
     private  T[] data;
     private int freeIndex;
@@ -30,8 +32,7 @@ public class StackArray <T> {
     //odebrani prvku
     T pop(){
         if (freeIndex < 1){
-            System.out.println("Cannot pop! :(");
-            return null;
+            throw new EmptyStackException();
         }
         freeIndex--;
         return data[freeIndex];
@@ -40,8 +41,7 @@ public class StackArray <T> {
     //sebrani vrcholu - bez odebrani
     T peek(){
         if (freeIndex < 1){
-            System.out.println("Cannot pop! :(");
-            return null;
+            throw new EmptyStackException();
         }
         return data[freeIndex-1];
     }

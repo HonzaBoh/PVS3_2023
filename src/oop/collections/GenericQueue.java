@@ -1,5 +1,7 @@
 package oop.collections;
 
+import java.util.EmptyStackException;
+
 public class GenericQueue <T> {
     Link<T> first, last;
     private int queueSize = 0;
@@ -10,7 +12,7 @@ public class GenericQueue <T> {
 
     T pop(){
         if (first == null)
-            return null;
+            throw new EmptyStackException();
         T toPop = first.data;
         first = first.next;
         queueSize--;
@@ -19,7 +21,7 @@ public class GenericQueue <T> {
 
     T peek(){
         if (first == null)
-            return null;
+            throw new EmptyStackException();
         return first.data;
     }
 

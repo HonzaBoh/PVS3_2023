@@ -7,6 +7,8 @@ public class Basic {
     public static void main(String[] args) {
         String dialog = JOptionPane.showInputDialog("Zadej cislo:");
         int cislo = 10;
+//        int option = JOptionPane.showConfirmDialog(null,"neco zaklikni", "titl", JOptionPane.YES_NO_OPTION);
+//        JOptionPane.showMessageDialog(null, "Message", "Title", JOptionPane.WARNING_MESSAGE);
 
         try{
             int aNumber = Integer.parseInt(dialog);
