@@ -28,6 +28,7 @@ public class Notations {
         String graphics = BorderLayout.NORTH;
         Notations n = new Notations();
         n.getNum();
+//        System.out.println(3^1);
         //Dnes se mi blbe spalo
 
         /*
