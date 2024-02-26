@@ -11,7 +11,7 @@ import java.util.Vector;
 public class Reading {
     public static void main(String[] args) throws IOException {
         String filePath = "resources//test.txt";
-        //cteni po znacich/bytech
+        //cteni po znacich
         FileReader fr = new FileReader(filePath);
         int read = fr.read();
         while (read != -1){
