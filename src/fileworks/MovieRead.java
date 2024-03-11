@@ -1,83 +1,63 @@
 package fileworks;
 
 import java.io.BufferedReader;
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
 
 public class MovieRead {
-    static ArrayList<ComparableMovie> movies;
+    static ArrayList<Movie> movies = new ArrayList<>();
 
 
-    //varianta 1: Scanner
-    static void loadMoviesScanner(String path) throws IOException {
-        Scanner sc = new Scanner(new File(path));
-        sc.useDelimiter(";");
-        sc.useLocale(Locale.US);
-        ComparableMovie movie;
-        while (sc.hasNext()){
-            movie = new ComparableMovie(sc.next(),
-                    sc.nextInt(),
-                    sc.nextDouble());
-            movies.add(movie);
+    static void loadMovies(String filepath) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filepath));
+            String line;
+            while ((line = br.readLine()) != null){
+//                System.out.println(line);
+               movies.add(parseMovie(line));
+            }
+            br.close();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
-        sc.close();
+        //alternativne
+        try{
+            List<String> lines = Files.readAllLines(Paths.get(filepath));
+            for (String line : lines){
+                movies.add(parseMovie(line));
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+
     }
 
-    //Varianta 2: po radcich + parse
-    static void loadMoviesReaders(String path) throws IOException{
-        BufferedReader reader = new BufferedReader(new FileReader(path));
-        String line;
-        String[] attributes;
-        ComparableMovie movie;
-        while ( (line = reader.readLine()) != null ){
-             attributes = line.split(";");
-             movie = new ComparableMovie(
-                     attributes[0],
-                     Integer.parseInt(attributes[1]),
-                     Double.parseDouble(attributes[2])
-             );
-             movies.add(movie);
-        }
+    static Movie parseMovie(String line) {
+        Movie m;
+        String[] params = line.split(";");
+        m = new Movie(params[0], Integer.parseInt(params[1]), Double.parseDouble(params[2]));
+        return m;
     }
 
-    //varianta 3 - all-in
-    static void loadMoviesAll(String path) throws IOException{
-        List<String> lines = Files.readAllLines(Paths.get(path));
-
-        String[] attributes;
-        ComparableMovie movie;
-        for(String line : lines){
-            attributes = line.split(";");
-            movie = new ComparableMovie(
-                    attributes[0],
-                    Integer.parseInt(attributes[1]),
-                    Double.parseDouble(attributes[2])
-            );
-            movies.add(movie);
-        }
-    }
-    public static void main(String[] args) throws IOException{
-        movies = new ArrayList<>();
-        String path = "resources//ComparableMovies.txt";
-        loadMoviesScanner(path);
-//        loadMoviesReaders(path);
-//        loadMoviesAll(path);
+    public static void main(String[] args) {
+        loadMovies("resources\\ComparableMovies.txt");
         System.out.println(movies);
     }
+
 }
-class ComparableMovie{
+
+class Movie {
     String name;
     int year;
-    Double rating;
+    double rating;
 
-    public ComparableMovie(String name, int year, Double rating) {
+    public Movie(String name, int year, double rating) {
         this.name = name;
         this.year = year;
         this.rating = rating;
@@ -85,6 +65,6 @@ class ComparableMovie{
 
     @Override
     public String toString() {
-        return name + " (" + year + ") [" + rating + "/10]";
+        return name + " (" +year+") "+ "[" + rating + "/10]";
     }
 }
