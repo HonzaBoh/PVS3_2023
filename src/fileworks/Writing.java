@@ -24,16 +24,13 @@ public class Writing {
 
 //        bw.close();
 
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path)));
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path), 64*1024));
 
         for (int i = 0; i < 10000; i++) {
             pw.println("Line#" + (i+1));
         }
 //        pw.close();
-        pw.flush();
-        pw.println("konec");
-        pw.println((5.0/2.0));
-        pw.close();
+//        pw.flush();
 
     }
 }
