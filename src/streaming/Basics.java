@@ -2,6 +2,7 @@ package streaming;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -42,8 +43,11 @@ public class Basics {
         
         //z testu: vypis jen nazvy textovych souboru a souboru mensi 5 kb
         int[] numbers = new int[]{50,21,26};
-        // TODO: 18.04.2024 ukazka 
         File[] files = new File("resources\\poetry").listFiles();
+        List<File> fileList = Arrays.asList(files);
+        List<File> filteredFiles =  fileList.stream()
+                .filter(file -> file.length() < 5000 && file.getName().endsWith(".txt"))
+                .toList();
     }
 
 }
