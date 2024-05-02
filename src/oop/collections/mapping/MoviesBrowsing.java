@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MoviesBrowsing {
@@ -32,7 +33,7 @@ public class MoviesBrowsing {
 //                    Integer.parseInt(params[1].substring(params[1].length()-5, params[1].length()-1)),
                     params[2]
             );
-            System.out.println(movie);
+//            System.out.println(movie);
             return movie;
         } catch (NumberFormatException | StringIndexOutOfBoundsException e){
             invalidCount++;
@@ -40,8 +41,33 @@ public class MoviesBrowsing {
         }
     }
 
+    static void setRatings(ArrayList<MovieMapping> movies, String filePath){
+        HashMap<Integer, List<Double>> ratings = new HashMap<>();
+        
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(filePath));
+            double ratingValue;
+            int movieID;
+            String[] params;
+            lines.remove(0);
+            for(String line : lines){
+                params = line.split(",");
+                // TODO: 02.05.2024 : nacist dvojice, pripad unikatni/uz tam je 
+                movieID = Integer.parseInt(params[1]);
+                ratingValue = Double.parseDouble(params[2]);
+            }
+            // TODO: 02.05.2024 Priradit k filmum 
+            System.out.println("Ratings: " + lines.size());
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         ArrayList<MovieMapping> movies = loadMovies("resources//movies//input.csv");
         System.out.println("Total count: " + invalidCount);
+        setRatings(movies, "resources//movies//ratings.csv");
+
     }
 }
