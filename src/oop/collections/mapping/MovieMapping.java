@@ -1,16 +1,18 @@
 package oop.collections.mapping;
 
 public class MovieMapping {
+    int id;
     String name;
-    int yearOfRelease;
+//    int yearOfRelease;
     String genre;
     double rating;
 //    int duration;//tbd
 //    String director;
 
-    public MovieMapping(String name, int yearOfRelease, String genre) {
+    public MovieMapping(int id, String name, String genre) {
         this.name = name;
-        this.yearOfRelease = yearOfRelease;
+        this.id = id;
+//        this.yearOfRelease = yearOfRelease;
         this.genre = genre;
         this.rating = 0;
     }
@@ -21,7 +23,7 @@ public class MovieMapping {
                  + "Name: " + name + "\n"
 //                 + "Written by: " + director + "\n"
                  + "Genre: " + genre + "\n"
-                 + "Released in: " + yearOfRelease + "\n"
+//                 + "Released in: " + yearOfRelease + "\n"
 //                 + "Runtime: " + duration + "\n"
                  + "Rated: " + rating + "10\n"
                 + "===================\n";
