@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MoviesBrowsing {
     static int invalidCount = 0;
@@ -33,7 +35,7 @@ public class MoviesBrowsing {
 //                    Integer.parseInt(params[1].substring(params[1].length()-5, params[1].length()-1)),
                     params[2]
             );
-//            System.out.println(movie);
+            System.out.println(movie);
             return movie;
         } catch (NumberFormatException | StringIndexOutOfBoundsException e){
             invalidCount++;
@@ -52,12 +54,38 @@ public class MoviesBrowsing {
             lines.remove(0);
             for(String line : lines){
                 params = line.split(",");
-                // TODO: 02.05.2024 : nacist dvojice, pripad unikatni/uz tam je 
                 movieID = Integer.parseInt(params[1]);
                 ratingValue = Double.parseDouble(params[2]);
+
+                if (!ratings.containsKey(movieID)){ // film v mape neni
+                    ArrayList<Double> toAdd = new ArrayList<>();
+                    toAdd.add(ratingValue);
+                    ratings.put(movieID, toAdd);
+                } else {//film v mape je
+                    ratings.get(movieID).add(ratingValue);
+                }
             }
-            // TODO: 02.05.2024 Priradit k filmum 
+
+            System.out.println("Movies mapped");
             System.out.println("Ratings: " + lines.size());
+            //ukazka - vytisk k jednomu filmu
+//            for (Double num : ratings.get(8360)){
+//                System.out.println(num);
+//            }
+            List<Double> listedRating;
+            for(MovieMapping movie : movies){
+                listedRating = ratings.get(movie.id);
+                if (listedRating == null){
+                    continue;
+                }
+
+                double rating = ratings.get(movie.id).stream()
+                        .mapToDouble(Double::doubleValue)
+                        .average()
+                        .orElse(0);
+
+                movie.setRating(rating);
+            }
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -68,6 +96,18 @@ public class MoviesBrowsing {
         ArrayList<MovieMapping> movies = loadMovies("resources//movies//input.csv");
         System.out.println("Total count: " + invalidCount);
         setRatings(movies, "resources//movies//ratings.csv");
+//        System.out.println(movies);
 
+        Map<String, List<MovieMapping>> ratingCategories = movies.stream()
+                .collect(Collectors.groupingBy(
+                        movieMapping -> {
+                            double rating = movieMapping.rating;
+                            if (rating >= 3.7) return "Velmi dobre";
+                            else if (rating >= 3) return "Dobre";
+                            else return "Prumer";
+                        }
+                ));
+
+        System.out.println(ratingCategories.get("Velmi dobre"));
     }
 }

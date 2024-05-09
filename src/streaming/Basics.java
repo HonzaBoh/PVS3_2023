@@ -47,6 +47,7 @@ public class Basics {
         List<File> fileList = Arrays.asList(files);
         List<File> filteredFiles =  fileList.stream()
                 .filter(file -> file.length() < 5000 && file.getName().endsWith(".txt"))
+                .distinct() //unikatni vyskyty
                 .toList();
     }
 

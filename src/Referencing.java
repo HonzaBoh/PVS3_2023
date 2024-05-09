@@ -22,6 +22,15 @@ public class Referencing {
         a++;
         mc.x += a;
         a++;
+
+        vnejsi:
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < 200; j++) {
+                if(i == 42){
+                    break vnejsi;
+                }
+            }
+        }
     }
 }
 

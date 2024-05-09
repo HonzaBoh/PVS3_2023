@@ -17,6 +17,10 @@ public class MovieMapping {
         this.rating = 0;
     }
 
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
     @Override
     public String toString() {
         return "===================\n"
