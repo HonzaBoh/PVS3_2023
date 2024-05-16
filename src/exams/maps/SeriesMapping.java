@@ -75,6 +75,7 @@ public class SeriesMapping {
 
     }
 }
+
 class Series{
     String seriesID;
     String name;
