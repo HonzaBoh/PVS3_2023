@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class SeriesMapping {
 
@@ -64,14 +61,16 @@ public class SeriesMapping {
     }
 
     public static void main(String[] args) {
-        ArrayList<Series> series = seriesLoad("resources\\series.csv");
-        System.out.println(series);
-        loadEpisodes("resources\\episodes.csv", series);
-        for (Series s : series){
-            s.setSeriesRating();
-            System.out.println(s);
-        }
-        printSeries(series.get(80));
+        Episode e = new Episode(2, 9,0.9);
+        System.out.println(e);
+//        ArrayList<Series> series = seriesLoad("resources\\series.csv");
+//        System.out.println(series);
+//        loadEpisodes("resources\\episodes.csv", series);
+//        for (Series s : series){
+//            s.setSeriesRating();
+//            System.out.println(s);
+//        }
+//        printSeries(series.get(80));
 
     }
 }
@@ -125,6 +124,19 @@ class Episode{
             }
         }
     } ;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Episode episode1 = (Episode) o;
+        return season == episode1.season && episode == episode1.episode && Double.compare(rating, episode1.rating) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(season, episode, rating);
+    }
 
     @Override
     public String toString() {
